@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Thomas Nogaret</title>
+  <meta name="description" content="Portfolio de Thomas Nogaret, étudiant en BUT Mesures Physiques à Bordeaux, spécialisé en instrumentation, métrologie et analyse de données." />
+  <style>
+    @import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap)');
+
+    :root {
+      --primary: #1f4e8c;
+      --primary-dark: #163a69;
+      --secondary: #f3f7fc;
+      --accent: #f0b429;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --border: #dbe4f0;
+      --shadow: 0 10px 30px rgba(20, 40, 80, 0.08);
+      --radius: 18px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), 92%);
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(219, 228, 240, 0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(20, 58, 105, 0.92), rgba(31, 78, 140, 0.82)),
+        url('[images.unsplash.com](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80)') center/cover no-repeat;
+      color: var(--white);
+      padding: 90px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #dbeafe;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      max-width: 700px;
+      color: #e8eef7;
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.3rem;
+      border-radius: 12px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1b1b1b;
+    }
+
+    .btn-primary:hover {
+      background: #e3a414;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 22px;
+      margin: 0 auto 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .hero-card h3 {
+      text-align: center;
+      margin-bottom: 0.35rem;
+      font-size: 1.2rem;
+    }
+
+    .hero-card p {
+      text-align: center;
+      color: #e8eef7;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 78px 0;
+    }
+
+    .section-light {
+      background: var(--white);
+    }
+
+    .section-soft {
+      background: var(--secondary);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .profile-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+
+    .profile-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-text {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-text p + p {
+      margin-top: 1rem;
+    }
+
+    .info-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+
+    .badge {
+      padding: 0.65rem 0.9rem;
+      background: #eef4fb;
+      color: var(--primary);
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    /* Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(20, 40, 80, 0.12);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      font-size: 1.15rem;
+    }
+
+    .card .meta {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card li + li {
+      margin-top: 0.35rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #eef4fb;
+      color: var(--primary);
+      border: 1px solid #d8e5f5;
+      font-size: 0.85rem;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* Experience / Formation */
+    .stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stack-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stack-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .stack-item .meta {
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.9rem;
+    }
+
+    .skill-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 0.9rem;
+      text-align: center;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: var(--shadow);
+      word-break: break-word;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 1rem;
+      border-radius: 16px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      padding: 1.2rem 0 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .two-columns,
+      .contact-grid,
+      .cards-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .hero-card {
+        max-width: 380px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.8rem 0;
+      }
+
+      .nav-links {
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand">Thomas Nogaret</a>
+      <nav class="nav-links">
+        <a href="#about">À propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#experience">Expériences</a>
+        <a href="#formation">Formation</a>
+        <a href="#skills">Compétences</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Thomas NOGARET</h1>
+          <div class="subtitle">Étudiant en BUT Mesures Physiques — Instrumentation & Métrologie</div>
+          <p>
+            Étudiant en 3ᵉ année de BUT Mesures Physiques à l’Université de Bordeaux, spécialisé en instrumentation, métrologie et analyse de données.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+            <a href="CV-NOGARET-Thomas.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
+            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="image.jpg" alt="Photo de profil de Thomas Nogaret">
+          <h3>Thomas Nogaret</h3>
+          <p>Étudiant en BUT Mesures Physiques à Bordeaux</p>
+          <p>Pessac, Nouvelle-Aquitaine, France</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-light">
+      <div class="container">
+        <h2 class="section-title">À propos</h2>
+        <p class="section-intro">
+          Un profil orienté instrumentation, métrologie et exploitation de données expérimentales, avec une expérience concrète en environnement industriel.
+        </p>
+
+        <div class="about-grid">
+          <div class="profile-card">
+            <img src="image.jpg" alt="Portrait de Thomas Nogaret">
+            <h3>Profil</h3>
+            <p>Étudiant en BUT Mesures Physiques à Bordeaux</p>
+            <p>IUT de Bordeaux</p>
+            <p>3 relations</p>
+            <a class="btn btn-primary" href="[linkedin.com](https://www.linkedin.com/in/thomas-nogaret-b259253a4/)" target="_blank" rel="noopener noreferrer">
+              Voir mon LinkedIn
+            </a>
+          </div>
+
+          <div class="about-text">
+            <p>
+              Je suis étudiant en troisième année de BUT Mesures Physiques à l’Université de Bordeaux, spécialisé en instrumentation. Je m’intéresse particulièrement à la métrologie, à l’analyse de données et à la mise en œuvre de chaînes de mesure.
+            </p>
+            <p>
+              Au cours de ma formation, j’ai développé des compétences en campagnes de mesures, traitement de données et caractérisation de grandeurs physiques. Lors de mon stage chez Roxel, j’ai réalisé des analyses statistiques afin d’identifier les paramètres influents sur l’éclatement de structures bobinées.
+            </p>
+            <p>
+              Cette expérience m’a permis de renforcer mes compétences en instrumentation, métrologie et travail en équipe. Je recherche une opportunité dans le domaine de la mesure physique et de l’instrumentation.
+            </p>
+
+            <div class="info-badges">
+              <div class="badge">Instrumentation</div>
+              <div class="badge">Métrologie</div>
+              <div class="badge">Analyse de données</div>
+              <div class="badge">Campagnes de mesures</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-soft">
+      <div class="container">
+        <h2 class="section-title">Projets</h2>
+        <p class="section-intro">
+          Quelques travaux représentatifs de mes compétences en instrumentation, acquisition et analyse de données.
+        </p>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Analyse statistique Roxel</h3>
+            <div class="meta">Stage BUT Mesures Physiques</div>
+            <ul>
+              <li>Analyse statistique de données expérimentales.</li>
+              <li>Étude de l’impact du diamètre sur la pression d’éclatement.</li>
+              <li>Identification des paramètres influents.</li>
+              <li>Traitement sous Excel et Python.</li>
+              <li>Visualisation des résultats.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Métrologie</span>
+              <span class="tag">Statistiques</span>
+              <span class="tag">Analyse de données</span>
+              <span class="tag">Instrumentation</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Campagne de mesures</h3>
+            <div class="meta">BUT Mesures Physiques</div>
+            <ul>
+              <li>Mise en place d’une chaîne de mesure.</li>
+              <li>Acquisition de données expérimentales.</li>
+              <li>Traitement des résultats.</li>
+              <li>Validation des mesures.</li>
+              <li>Analyse des incertitudes.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Chaîne de mesure</span>
+              <span class="tag">Acquisition</span>
+              <span class="tag">Métrologie</span>
+              <span class="tag">Analyse</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Instrumentation</h3>
+            <div class="meta">BUT Mesures Physiques</div>
+            <ul>
+              <li>Mise en œuvre de capteurs.</li>
+              <li>Conditionnement du signal.</li>
+              <li>Acquisition de données.</li>
+              <li>Analyse des signaux.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Instrumentation</span>
+              <span class="tag">Capteurs</span>
+              <span class="tag">Acquisition</span>
+              <span class="tag">Traitement signal</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section-light">
+      <div class="container">
+        <h2 class="section-title">Expériences professionnelles</h2>
+
+        <div class="stack">
+          <article class="stack-item">
+            <h3>Stagiaire instrumentation — Roxel</h3>
+            <div class="meta">Janvier 2025 – Avril 2025</div>
+            <ul>
+              <li>Analyses statistiques pour identifier les paramètres influents sur l’éclatement de structures.</li>
+              <li>Étude de l’impact du diamètre sur la pression d’éclatement.</li>
+              <li>Campagne de mesures et traitement de données.</li>
+              <li>Travail en équipe dans un contexte industriel.</li>
+            </ul>
+          </article>
+
+          <article class="stack-item">
+            <h3>Stagiaire support numérique — Cerealog</h3>
+            <div class="meta">Mai 2022 – Juin 2022</div>
+            <ul>
+              <li>Installation de logiciels.</li>
+              <li>Configuration d’ordinateurs.</li>
+              <li>Support informatique.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formation" class="section-soft">
+      <div class="container">
+        <h2 class="section-title">Formation</h2>
+
+        <div class="two-columns">
+          <article class="stack-item">
+            <h3>BUT Mesures Physiques</h3>
+            <div class="meta">Université de Bordeaux — 2023 à 2026</div>
+            <p>Spécialisation : instrumentation.</p>
+          </article>
+
+          <article class="stack-item">
+            <h3>Baccalauréat STI2D</h3>
+            <div class="meta">Lycée Sainte Famille Saintonge</div>
+            <p>Mention assez bien.</p>
+          </article>
+
+          <article class="stack-item">
+            <h3>CQP OPAH</h3>
+            <div class="meta">AFORPA</div>
+            <p>Certificat de qualification professionnelle.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-light">
+      <div class="container">
+        <h2 class="section-title">Compétences</h2>
+        <p class="section-intro">
+          Compétences techniques et outils mobilisés au cours de ma formation et de mes expériences.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-item">Instrumentation</div>
+          <div class="skill-item">Chaîne de mesure</div>
+          <div class="skill-item">Capteurs</div>
+          <div class="skill-item">Métrologie</div>
+          <div class="skill-item">Acquisition</div>
+          <div class="skill-item">Analyse de données</div>
+          <div class="skill-item">Statistiques</div>
+          <div class="skill-item">Traitement de données</div>
+          <div class="skill-item">Analyse des résultats</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Excel</div>
+          <div class="skill-item">SolidWorks</div>
+          <div class="skill-item">Word</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft">
+      <div class="container two-columns">
+        <div class="stack-item">
+          <h3>Langues</h3>
+          <ul>
+            <li>Français : langue maternelle</li>
+            <li>Anglais : technique</li>
+            <li>Espagnol : niveau scolaire</li>
+          </ul>
+        </div>
+
+        <div class="stack-item">
+          <h3>Centres d’intérêt</h3>
+          <ul>
+            <li>Basketball</li>
+            <li>Volleyball</li>
+            <li>Lecture</li>
+            <li>Manga</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-light">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Contact</h2>
+          <p>
+            Disponible pour échanger autour d’un stage, d’une alternance ou d’une opportunité dans le domaine de la mesure physique et de l’instrumentation.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>Nom</strong>
+              Thomas Nogaret
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:th.nogaret@gmail.com">th.nogaret@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>Téléphone</strong>
+              <a href="tel:+33768963618">07 68 96 36 18</a>
+            </div>
+            <div class="contact-item">
+              <strong>Localisation</strong>
+              Pessac, Nouvelle-Aquitaine, France
+            </div>
+            <div class="contact-item">
+              <strong>LinkedIn</strong>
+              <a href="[linkedin.com](https://www.linkedin.com/in/thomas-nogaret-b259253a4/)" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/thomas-nogaret-b259253a4
+              </a>
+            </div>
+            <div class="contact-item">
+              <strong>CV</strong>
+              <a href="CV-NOGARET-Thomas.pdf" download>Télécharger le PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2024 – Thomas Nogaret | Portfolio BUT Mesures Physiques – IUT de Bordeaux
+  </footer>
+
+</body>
+</html>
