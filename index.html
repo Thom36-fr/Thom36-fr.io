@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Thomas Nogaret</title>
+  <link rel="icon" type="image/png" href="[cdn-icons-png.flaticon.com](https://cdn-icons-png.flaticon.com/512/3523/3523063.png)" />
+  <style>
+    @import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap)');
+    :root {
+      --main: #244c88;
+      --accent: #ffb703;
+      --light: #f8fafc;
+      --text: #1a1a1a;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: sticky; top:0; z-index:100;
+      display:flex; justify-content:space-between; align-items:center;
+      background:white; padding:1rem 2rem;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    header h1 { color:var(--main); font-size:1.4rem; }
+    nav a {
+      text-decoration:none; color:var(--text); margin:0 0.8rem; font-weight:600;
+    }
+    nav a:hover { color:var(--accent); }
+
+    .hero {
+      height:75vh;
+      background:linear-gradient(to right,rgba(36,76,136,.8),rgba(36,76,136,.9)),url('[images.unsplash.com](https://images.unsplash.com/photo-1581092446327-2240d5e9bba7?auto=format&fit=crop&w=1600&q=80)') center/cover no-repeat;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      color:white; text-align:center; padding:2rem;
+    }
+    .hero h1 { font-size:2.2rem; margin-bottom:.5rem; }
+    .hero h3 { font-size:1.3rem; font-weight:400; opacity:.9; margin-bottom:.8rem; }
+    .hero p { max-width:600px; margin:auto; opacity:.9; margin-bottom:1.5rem;}
+    .btn {
+      display:inline-block; background:var(--accent); color:#222;
+      font-weight:600; padding:.8rem 1.4rem; border-radius:6px;
+      text-decoration:none; margin:.4rem; transition:.3s;
+    }
+    .btn:hover { background:#ffa009; }
+
+    section { padding:4rem 1.5rem; }
+    h2 { color:var(--main); margin-bottom:1.2rem; text-align:center; }
+
+    .container { max-width:1000px; margin:auto; }
+
+    /* À propos */
+    #about p { margin-bottom:1rem; }
+    #about ul { margin-left:1.3rem; }
+
+    /* Projets */
+    .project {
+      background:white;
+      border-left:5px solid var(--main);
+      padding:1.3rem 1.2rem;
+      margin-bottom:1rem;
+      border-radius:8px;
+      box-shadow:0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Expériences */
+    .experience {
+      background:#f1f3f9;
+      border-left:4px solid var(--accent);
+      padding:1rem 1.2rem;
+      margin-bottom:1rem;
+      border-radius:6px;
+    }
+
+    /* Formation */
+    .formation { background:white; padding:1.5rem 1.2rem; margin-bottom:1rem; border-radius:8px;
+      border-left:5px solid var(--main); box-shadow:0 2px 4px rgba(0,0,0,0.05); }
+
+    /* Compétences */
+    .skills-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:1rem;
+      margin-top:1rem;
+    }
+    .skill {
+      background:white;
+      padding:1rem;
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      text-align:center;
+      font-weight:600;
+    }
+
+    footer {
+      background:var(--main);
+      color:white;
+      text-align:center;
+      padding:1rem;
+      margin-top:2rem;
+    }
+
+    /* Responsive */
+    @media(max-width:800px){
+      .hero h1{font-size:1.6rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🧑‍💻 SECTION 1 — HERO -->
+  <header>
+    <h1>Thomas Nogaret</h1>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#experience">Expériences</a>
+      <a href="#skills">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Étudiant en BUT Mesures Physiques</h1>
+    <h3>Instrumentation & Métrologie</h3>
+    <p>
+      Étudiant en 3ᵉ année de BUT Mesures Physiques à l’Université de Bordeaux, spécialisé en instrumentation, métrologie et analyse de données.
+    </p>
+    <div>
+      <a href="#projects" class="btn">Voir mes projets</a>
+      <a href="CV-NOGARET-Thomas.pdf" class="btn" download>Télécharger mon CV</a>
+      <a href="#contact" class="btn">Me contacter</a>
+    </div>
+  </section>
+
+  <!-- 👤 SECTION 2 — À PROPOS -->
+  <section id="about">
+    <div class="container">
+      <h2>À propos</h2>
+      <p>
+        Je suis étudiant en troisième année de BUT Mesures Physiques à l’Université de Bordeaux, spécialisé en instrumentation. Je m’intéresse particulièrement à la métrologie, à l’analyse de données et à la mise en œuvre de chaînes de mesure.
+      </p>
+      <p>
+        Au cours de ma formation, j’ai développé des compétences en campagnes de mesures, traitement de données et caractérisation de grandeurs physiques. Lors de mon stage chez Roxel, j’ai réalisé des analyses statistiques afin d’identifier les paramètres influents sur l’éclatement de structures bobinées.
+      </p>
+      <p>
+        Cette expérience m’a permis de renforcer mes compétences en instrumentation, métrologie et travail en équipe. Je recherche une opportunité dans le domaine de la mesure physique et de l’instrumentation.
+      </p>
+    </div>
+  </section>
+
+  <!-- 🧪 SECTION 3 — PROJETS -->
+  <section id="projects" style="background:#eef2ff">
+    <div class="container">
+      <h2>Projets</h2>
+
+      <div class="project">
+        <h3>Analyse statistique Roxel</h3>
+        <p><em>Stage – BUT Mesures Physiques</em></p>
+        <ul>
+          <li>Analyse statistique de données expérimentales</li>
+          <li>Étude de l’impact du diamètre sur la pression d’éclatement</li>
+          <li>Identification des paramètres influents</li>
+          <li>Traitement sur Excel et Python, visualisation des résultats</li>
+        </ul>
+        <strong>Compétences :</strong> Métrologie, Statistiques, Analyse de données, Instrumentation
+      </div>
+
+      <div class="project">
+        <h3>Campagne de mesures</h3>
+        <p><em>BUT Mesures Physiques</em></p>
+        <ul>
+          <li>Mise en place d’une chaîne de mesure</li>
+          <li>Acquisition et traitement des données</li>
+          <li>Validation des mesures et analyse des incertitudes</li>
+        </ul>
+        <strong>Compétences :</strong> Chaîne de mesure, Acquisition, Métrologie, Analyse
+      </div>
+
+      <div class="project">
+        <h3>Instrumentation – Mise en œuvre de capteurs</h3>
+        <p><em>BUT Mesures Physiques</em></p>
+        <ul>
+          <li>Conditionnement du signal et acquisition de données</li>
+          <li>Analyse et traitement des signaux</li>
+        </ul>
+        <strong>Compétences :</strong> Instrumentation, Capteurs, Acquisition, Traitement du signal
+      </div>
+    </div>
+  </section>
+
+  <!-- 💼 SECTION 4 — EXPÉRIENCES -->
+  <section id="experience">
+    <div class="container">
+      <h2>Expériences professionnelles</h2>
+
+      <div class="experience">
+        <h3>Stagiaire Instrumentation – Roxel</h3>
+        <p><em>Janvier 2025 – Avril 2025</em></p>
+        <ul>
+          <li>Analyses statistiques et campagnes de mesures</li>
+          <li>Étude de l’impact des paramètres sur les performances des structures</li>
+          <li>Traitement de données et travail en équipe</li>
+        </ul>
+      </div>
+
+      <div class="experience">
+        <h3>Stagiaire Support Numérique – Cerealog</h3>
+        <p><em>Mai 2022 – Juin 2022</em></p>
+        <ul>
+          <li>Installation et configuration de logiciels et ordinateurs</li>
+          <li>Support informatique aux utilisateurs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎓 SECTION 5 — FORMATION -->
+  <section id="formation" style="background:#eef2ff">
+    <div class="container">
+      <h2>Formation</h2>
+
+      <div class="formation">
+        <h3>BUT Mesures Physiques</h3>
+        <p>Université de Bordeaux | 2023 – 2026<br>Spécialisation : Instrumentation</p>
+      </div>
+      <div class="formation">
+        <h3>Baccalauréat STI2D</h3>
+        <p>Lycée Sainte Famille Saintonge | Mention Assez Bien</p>
+      </div>
+      <div class="formation">
+        <h3>CQP OPAH</h3>
+        <p>AFORPA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🧠 SECTION 6 — COMPÉTENCES -->
+  <section id="skills">
+    <div class="container">
+      <h2>Compétences</h2>
+      <div class="skills-grid">
+        <div class="skill">Instrumentation</div>
+        <div class="skill">Chaîne de mesure</div>
+        <div class="skill">Capteurs</div>
+        <div class="skill">Métrologie</div>
+        <div class="skill">Acquisition</div>
+        <div class="skill">Analyse de données</div>
+        <div class="skill">Statistiques</div>
+        <div class="skill">Traitement de données</div>
+        <div class="skill">Analyse des résultats</div>
+        <div class="skill">Python</div>
+        <div class="skill">Excel</div>
+        <div class="skill">SolidWorks</div>
+        <div class="skill">Word</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌍 SECTION 7 — LANGUES -->
+  <section id="langues" style="background:#eef2ff">
+    <div class="container">
+      <h2>Langues</h2>
+      <ul>
+        <li>Français : Langue maternelle</li>
+        <li>Anglais : Technique</li>
+        <li>Espagnol : Niveau scolaire</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 🎯 SECTION 8 — CENTRES D’INTÉRÊT -->
+  <section id="interets">
+    <div class="container">
+      <h2>Centres d’intérêt</h2>
+      <p>Basketball • Volleyball • Lecture • Manga</p>
+    </div>
+  </section>
+
+  <!-- 📞 SECTION 9 — CONTACT -->
+  <section id="contact" style="background:#244c88;color:white;text-align:center;">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>📧 th.nogaret@gmail.com  |  📞 07 68 96 36 18</p>
+      <p>Portfolio BUT Mesures Physiques – IUT de Bordeaux</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2024 Thomas Nogaret | Portfolio BUT Mesures Physiques – IUT de Bordeaux
+  </footer>
+
+</body>
+</html>
