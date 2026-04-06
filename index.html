@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Thomas Nogaret</title>
+
+  <link rel="icon" type="image/png" href="[cdn-icons-png.flaticon.com](https://cdn-icons-png.flaticon.com/512/3523/3523063.png)">
+  <style>
+    @import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap)');
+    :root {
+      --main: #244c88;
+      --light: #f8fafc;
+      --text: #222;
+      --accent: #ffb703;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header h1 { color: var(--main); font-size: 1.4rem; }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 0.8rem;
+      font-weight: 600;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .hero {
+      height: 75vh;
+      background: linear-gradient(to right, rgba(36,76,136,0.8), rgba(36,76,136,0.7)), url('[images.unsplash.com](https://images.unsplash.com/photo-1581090700227-1a26e1c46a07?auto=format&fit=crop&w=1500&q=80)') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero h1 { font-size: 2.3rem; margin-bottom: 0.8rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.9; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #222;
+      padding: 0.8rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+      margin-top: 1.2rem;
+      text-decoration: none;
+      transition: .3s;
+    }
+    .btn:hover { background: #f9a602; }
+
+    section {
+      padding: 5rem 1.5rem;
+    }
+    .section-light { background: white; }
+    .section-dark {
+      background: linear-gradient(120deg, #244c88, #3069b1);
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .profile {
+      width: 220px;
+      border-radius: 50%;
+      border: 4px solid white;
+      justify-self: center;
+    }
+    h2 {
+      color: var(--main);
+      margin-bottom: 1.2rem;
+      font-size: 1.6rem;
+    }
+    .section-dark h2 { color: #fff; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.2rem;
+    }
+    .card {
+      background: white;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: .3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    .project {
+      background: #f2f4fa;
+      border-left: 5px solid var(--main);
+      padding: 1.3rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
+    article {
+      background: rgba(255,255,255,0.15);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    footer {
+      background: var(--main);
+      color: white;
+      text-align: center;
+      padding: 1.3rem;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .grid-2 { grid-template-columns: 1fr; text-align: center; }
+      .profile { margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Thomas Nogaret</h1>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#experience">Expériences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Héros -->
+  <section class="hero">
+    <div>
+      <h1>Étudiant en Mesures Physiques</h1>
+      <p>Instrumentation • Métrologie • Analyse de données</p>
+      <a href="#about" class="btn">Découvrir mon parcours</a>
+    </div>
+  </section>
+
+  <!-- À propos -->
+  <section id="about" class="section-light">
+    <div class="container grid-2">
+      <img src="[i.imgur.com](https://i.imgur.com/h2Ue5KM.png)" alt="Photo de Thomas Nogaret" class="profile">
+      <div>
+        <h2>À propos</h2>
+        <p>
+          Étudiant en <strong>BUT Mesures Physiques (3ᵉ année)</strong> à l’IUT de Bordeaux,  
+          passionné par la métrologie, l’instrumentation et l’analyse de données.  
+          Mon objectif : associer rigueur scientifique et innovation industrielle.
+        </p>
+        <ul>
+          <li>📍 Bordeaux, France</li>
+          <li>📧 th.nogaret@gmail.com</li>
+          <li>📞 07 68 96 36 18</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="skills" class="section-dark">
+    <div class="container">
+      <h2>Compétences clés</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Mener une campagne de mesures</h3>
+          <p>Planification et validation d’expériences selon les normes professionnelles.</p>
+        </div>
+        <div class="card">
+          <h3>Déployer la métrologie</h3>
+          <p>Évaluation d’incertitudes | étalonnage | traçabilité des instruments.</p>
+        </div>
+        <div class="card">
+          <h3>Instrumentation et traitement de signal</h3>
+          <p>Utilisation de Python et chaînes d’acquisition numérique complexes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projects" class="section-light">
+    <div class="container">
+      <h2>Projets et SAÉ</h2>
+      <div class="project">
+        <h3>SAÉ 2.09 – Projet tutoré</h3>
+        <p>
+          Conception d’un protocole expérimental de caractérisation d’un capteur.  
+          <strong>Compétences :</strong> instrumentation, collaboration, communication scientifique.
+        </p>
+      </div>
+      <div class="project">
+        <h3>SAÉ 1.01 – Traitement de données de mesures</h3>
+        <p>
+          Analyse statistique et représentation graphique des résultats.  
+          <strong>Outils :</strong> Python | Excel
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expériences -->
+  <section id="experience" class="section-dark">
+    <div class="container">
+      <h2>Expériences professionnelles</h2>
+      <article>
+        <h3>Roxel Group – Stage Service Série (2025)</h3>
+        <ul>
+          <li>Étude des paramètres influençant la pression d’éclatement.</li>
+          <li>Analyses statistiques et rédaction technique collaborative.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Cerealog – Stage Support Numérique (2022)</h3>
+        <ul>
+          <li>Installation logicielle et support client.</li>
+          <li>Première expérience professionnelle en environnement technique.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-light contact">
+    <div class="container">
+      <h2>Me contacter</h2>
+      <p>📧 <strong>th.nogaret@gmail.com</strong> | 📞 07 68 96 36 18</p>
+      <a href="CV-NOGARET-Thomas.pdf" class="btn">Télécharger mon CV (PDF)</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2024 Thomas Nogaret | Portfolio BUT Mesures Physiques – IUT de Bordeaux
+  </footer>
+</body>
+</html>
